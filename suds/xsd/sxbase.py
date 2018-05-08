@@ -170,6 +170,8 @@ class SchemaObject(object):
         ns = self.schema.tns
         if ns[0] is None:
             ns = (prefix, ns[1])
+        if self.ref and self.ref in self.schema.elements.keys():
+            ns = self.ref
         return ns
 
     def default_namespace(self):
